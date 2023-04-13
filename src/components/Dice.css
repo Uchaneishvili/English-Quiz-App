@@ -27,6 +27,7 @@ img {
   font-weight: bold;
   color: #fff;
   text-align: center;
+  border-radius: 20px;
 }
 
 .cube__face1,
@@ -74,4 +75,18 @@ img {
 }
 .cube.show6 {
   transform: translateZ(-100px) rotateX(90deg);
+}
+
+.btn-roll {
+  margin-bottom: 15px;
+  padding: 5px 0;
+  width: 200px;
+  background: none;
+  color: #555;
+  border: none;
+  font-size: 100%;
+  cursor: pointer;
+  font-weight: 300;
+  text-transform: uppercase;
+  transition: 0.2s;
 }

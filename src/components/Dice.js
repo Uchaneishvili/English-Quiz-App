@@ -1,4 +1,5 @@
 import React from "react";
+import { useRef } from "react";
 import "./Dice.css";
 import cubeImg1 from "./Img/dice-six-faces-1.png";
 import cubeImg2 from "./Img/dice-six-faces-2.png";
@@ -8,21 +9,20 @@ import cubeImg5 from "./Img/dice-six-faces-5.png";
 import cubeImg6 from "./Img/dice-six-faces-6.png";
 
 const Dice = () => {
-    const rollHandler = () => {
-      let randNum = Math.floor(Math.random() * 6 + 1);
-      let showClass = "show" + randNum;
-      let cube = document.getElementsById("cube");
-      let currentClass = cube.classList;
-      if (currentClass) {
-        cube.classList.remove(currentClass);
-      }
-      cube.classList.add(showClass);
-      currentClass = showClass;
-    };
+  const ref = useRef();
+  const rollHandler = () => {
+    let randNum = Math.floor(Math.random() * 6 + 1);
+    let showClass = "show" + randNum;
+    var currentClass = ref.current.classList;
+    if (currentClass !== "cube") {
+      ref.current.classList = "cube";
+    }
+    ref.current.classList.add(showClass);
+  };
 
   return (
     <div className="scene">
-      <div className="cube" id="cube">
+      <div className="cube" ref={ref}>
         <div className={`cube__face cube__face1`}>
           <img src={cubeImg1} alt=""></img>
         </div>
