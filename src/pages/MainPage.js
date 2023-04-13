@@ -1,14 +1,17 @@
 /** @format */
 
-import React from 'react';
-
-import { Table, Button } from 'antd';
+import React, { useState } from 'react';
+import Quiz from '../components/Quiz';
+import { Button } from 'antd';
 
 function MainPage() {
+	const [isEnabled, setIsEnabled] = useState(false);
+
 	return (
 		<div>
-			<Table />
-			<Button>125</Button>
+			<Button onClick={() => setIsEnabled(true)}>Press Me!</Button>
+
+			{isEnabled && <Quiz />}
 		</div>
 	);
 }
