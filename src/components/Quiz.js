@@ -2,13 +2,13 @@
 
 import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
+import styles from './Quiz.module.css';
 
 function Quiz() {
 	const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
 	const [showResult, setShowResult] = useState(false);
 	const [score, setScore] = useState(0);
-	const [isClosed, setIsClosed] = useState(false);
 
 	const handleAnswerSelect = (answer) => {
 		setSelectedAnswer(answer);
@@ -39,16 +39,6 @@ function Quiz() {
 	};
 
 	const questions = [
-		{
-			question: "What is the difference between 'affect' and 'effect'?",
-			options: [
-				'Affect is a verb, while effect is a noun.',
-				'Affect is a noun, while effect is a verb.',
-				'Affect and effect are synonyms.',
-				'There is no difference.',
-			],
-			answer: 'Affect is a verb, while effect is a noun.',
-		},
 		{
 			question:
 				'Which of the following is a type of sentence that gives a command or makes a request?',
@@ -108,8 +98,9 @@ function Quiz() {
 
 	return (
 		<Modal
-			open={!isClosed}
+			open={true}
 			closable={false}
+			title={<h2>{currentQuestion.question}</h2>}
 			footer={
 				<>
 					{currentQuestionIndex < questions.length - 1 ? (
@@ -120,11 +111,23 @@ function Quiz() {
 							Next Question
 						</Button>
 					) : (
+						<div>
+							{!showResult && (
+								<Button
+									type='primary'
+									disabled={!selectedAnswer}
+									onClick={handleShowResult}>
+									Show Result
+								</Button>
+							)}
+						</div>
+					)}
+
+					{showResult && (
 						<Button
 							type='primary'
-							disabled={!selectedAnswer}
-							onClick={handleShowResult}>
-							Show Result
+							onClick={handleRestart}>
+							Restart Quiz
 						</Button>
 					)}
 				</>
@@ -134,23 +137,20 @@ function Quiz() {
 					<h2>
 						Your score: {score}/{questions.length}
 					</h2>
-					<Button
-						type='primary'
-						onClick={handleRestart}>
-						Restart Quiz
-					</Button>
 				</div>
 			) : (
 				<div>
-					<h2>{currentQuestion.question}</h2>
-					{currentQuestion.options.map((option) => (
-						<Button
-							key={option}
-							type={selectedAnswer === option ? 'primary' : 'default'}
-							onClick={() => handleAnswerSelect(option)}>
-							{option}
-						</Button>
-					))}
+					<div className={styles.container}>
+						{currentQuestion.options.map((option) => (
+							<Button
+								className={styles.button}
+								key={option}
+								type={selectedAnswer === option ? 'primary' : 'default'}
+								onClick={() => handleAnswerSelect(option)}>
+								{option}
+							</Button>
+						))}
+					</div>
 				</div>
 			)}
 		</Modal>
