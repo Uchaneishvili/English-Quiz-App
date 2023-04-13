@@ -1,0 +1,77 @@
+.scene {
+  width: 150px;
+  height: 150px;
+  margin: 20px;
+  margin-bottom: 100px;
+}
+.scene > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.cube {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.cube__face {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+}
+
+.cube__face1,
+.cube__face2,
+.cube__face3,
+.cube__face4,
+.cube__face5,
+.cube__face6 {
+  background: black;
+}
+
+.cube__face1 {
+  transform: rotateY(0deg) translateZ(70px);
+}
+.cube__face2 {
+  transform: rotateY(180deg) translateZ(70px);
+}
+.cube__face3 {
+  transform: rotateY(90deg) translateZ(70px);
+}
+.cube__face4 {
+  transform: rotateY(-90deg) translateZ(70px);
+}
+.cube__face5 {
+  transform: rotateX(90deg) translateZ(70px);
+}
+.cube__face6 {
+  transform: rotateX(-90deg) translateZ(70px);
+}
+
+.cube.show1 {
+  transform: translateZ(-100px) rotateY(0deg);
+}
+.cube.show2 {
+  transform: translateZ(-100px) rotateY(-180deg);
+}
+.cube.show3 {
+  transform: translateZ(-100px) rotateY(-90deg);
+}
+.cube.show4 {
+  transform: translateZ(-100px) rotateY(90deg);
+}
+.cube.show5 {
+  transform: translateZ(-100px) rotateX(-90deg);
+}
+.cube.show6 {
+  transform: translateZ(-100px) rotateX(90deg);
+}
