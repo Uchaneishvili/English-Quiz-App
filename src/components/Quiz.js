@@ -4,6 +4,7 @@ import React from 'react';
 import { useState } from 'react';
 import { Modal, Button } from 'antd';
 import styles from './Quiz.module.css';
+import InitialModal from './InitialModal';
 
 function Quiz(props) {
 	const [score, setScore] = useState(0);
@@ -105,65 +106,67 @@ function Quiz(props) {
 		props.setEnabled(false);
 	};
 	return (
-		<Modal
-			open={props.enabled}
-			closable={false}
-			title={<h2>{!showResult && currentQuestion.question}</h2>}
-			footer={
-				<>
-					{props.currentQuestionIndex < questions.length - 1 ? (
-						<>
-							<Button
-								type='primary'
-								disabled={!selectedAnswer}
-								onClick={handleSubmitAnswer}>
-								Submit Answer
-							</Button>
-						</>
-					) : (
-						<div>
-							{!showResult && (
+		<>
+			<Modal
+				open={props.enabled}
+				closable={false}
+				title={<h2>{!showResult && currentQuestion.question}</h2>}
+				footer={
+					<>
+						{props.currentQuestionIndex < questions.length - 1 ? (
+							<>
 								<Button
 									type='primary'
 									disabled={!selectedAnswer}
-									onClick={handleShowResult}>
-									Show Result
+									onClick={handleSubmitAnswer}>
+									Submit Answer
 								</Button>
-							)}
-						</div>
-					)}
+							</>
+						) : (
+							<div>
+								{!showResult && (
+									<Button
+										type='primary'
+										disabled={!selectedAnswer}
+										onClick={handleShowResult}>
+										Show Result
+									</Button>
+								)}
+							</div>
+						)}
 
-					{showResult && (
-						<Button
-							type='primary'
-							onClick={() => handleRestart()}>
-							Restart Quiz
-						</Button>
-					)}
-				</>
-			}>
-			{showResult ? (
-				<div>
-					<h2>
-						Your score: {score}/{questions.length}
-					</h2>
-				</div>
-			) : (
-				<div>
-					<div className={styles.container}>
-						{currentQuestion.options.map((option) => (
+						{showResult && (
 							<Button
-								className={styles.button}
-								key={option}
-								type={selectedAnswer === option ? 'primary' : 'default'}
-								onClick={() => handleAnswerSelect(option)}>
-								{option}
+								type='primary'
+								onClick={() => handleRestart()}>
+								Restart Quiz
 							</Button>
-						))}
+						)}
+					</>
+				}>
+				{showResult ? (
+					<div>
+						<h2>
+							Your score: {score}/{questions.length}
+						</h2>
 					</div>
-				</div>
-			)}
-		</Modal>
+				) : (
+					<div>
+						<div className={styles.container}>
+							{currentQuestion.options.map((option) => (
+								<Button
+									className={styles.button}
+									key={option}
+									type={selectedAnswer === option ? 'primary' : 'default'}
+									onClick={() => handleAnswerSelect(option)}>
+									{option}
+								</Button>
+							))}
+						</div>
+					</div>
+				)}
+			</Modal>
+		</>
 	);
 }
 
