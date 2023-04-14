@@ -8,8 +8,10 @@ import cubeImg4 from "./Img/dice-six-faces-4.png";
 import cubeImg5 from "./Img/dice-six-faces-5.png";
 import cubeImg6 from "./Img/dice-six-faces-6.png";
 
-const Dice = () => {
+import { Button } from "antd";
+const Dice = (props) => {
   const ref = useRef();
+
   const rollHandler = () => {
     let randNum = Math.floor(Math.random() * 6 + 1);
     let showClass = "show" + randNum;
@@ -18,6 +20,10 @@ const Dice = () => {
       ref.current.classList = "cube";
     }
     ref.current.classList.add(showClass);
+
+    setTimeout(() => {
+      props.onShowQuizz(true);
+    }, 1000);
   };
 
   return (
@@ -43,9 +49,9 @@ const Dice = () => {
         </div>
       </div>
 
-      <button onClick={rollHandler} className="btnRoll">
+      <Button onClick={rollHandler} className="btnRoll">
         Roll Dice
-      </button>
+      </Button>
     </div>
   );
 };
