@@ -4,12 +4,13 @@ import React from 'react';
 import { useState } from 'react';
 import { Modal, Button } from 'antd';
 import styles from './Quiz.module.css';
-import InitialModal from './InitialModal';
 
 function Quiz(props) {
-	const [score, setScore] = useState(0);
 	const [showResult, setShowResult] = useState(false);
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
+	const [oneScore, setOneScore] = useState(0);
+	const [twoScore, setTwoScore] = useState(0);
+	const [number, setNumber] = useState(0);
 
 	const questions = [
 		{
@@ -24,56 +25,63 @@ function Quiz(props) {
 			options: ['Gorgeous', 'Gorgous', 'Gorgeus', 'Gorgius'],
 			answer: 'Gorgeous',
 		},
-		// {
-		// 	question:
-		// 		"Which of the following is a type of figurative language that compares two unlike things using 'like' or 'as'?",
-		// 	options: ['Metaphor', 'Simile', 'Personification', 'Hyperbole'],
-		// 	answer: 'Simile',
-		// },
-		// {
-		// 	question:
-		// 		'What is the name for a word that has the same or nearly the same meaning as another word?',
-		// 	options: ['Antonym', 'Synonym', 'Homonym', 'Heteronym'],
-		// 	answer: 'Synonym',
-		// },
-		// {
-		// 	question: "What is the plural of the word 'goose'?",
-		// 	options: ['Geese', 'Gooses', 'Geeses', 'Gice'],
-		// 	answer: 'Geese',
-		// },
-		// {
-		// 	question:
-		// 		'Which of the following is a type of sentence that expresses strong emotion?',
-		// 	options: ['Interrogative', 'Exclamatory', 'Imperative', 'Declarative'],
-		// 	answer: 'Exclamatory',
-		// },
-		// {
-		// 	question:
-		// 		"What is the correct spelling of the word that means 'the act of making something less severe'?",
-		// 	options: ['Mitigation', 'Mitagation', 'Mittigation', 'Mittagation'],
-		// 	answer: 'Mitigation',
-		// },
-		// {
-		// 	question:
-		// 		'Which of the following is a type of figurative language that gives human qualities to non-human things?',
-		// 	options: ['Metaphor', 'Simile', 'Personification', 'Hyperbole'],
-		// 	answer: 'Personification',
-		// },
-		// {
-		// 	question:
-		// 		'What is the name for a word that is spelled the same as another word, but has a different meaning?',
-		// 	options: ['Antonym', 'Synonym', 'Homonym', 'Heteronym'],
-		// 	answer: 'Homonym',
-		// },
+		{
+			question:
+				"Which of the following is a type of figurative language that compares two unlike things using 'like' or 'as'?",
+			options: ['Metaphor', 'Simile', 'Personification', 'Hyperbole'],
+			answer: 'Simile',
+		},
+		{
+			question:
+				'What is the name for a word that has the same or nearly the same meaning as another word?',
+			options: ['Antonym', 'Synonym', 'Homonym', 'Heteronym'],
+			answer: 'Synonym',
+		},
+		{
+			question: "What is the plural of the word 'goose'?",
+			options: ['Geese', 'Gooses', 'Geeses', 'Gice'],
+			answer: 'Geese',
+		},
+		{
+			question:
+				'Which of the following is a type of sentence that expresses strong emotion?',
+			options: ['Interrogative', 'Exclamatory', 'Imperative', 'Declarative'],
+			answer: 'Exclamatory',
+		},
+		{
+			question:
+				"What is the correct spelling of the word that means 'the act of making something less severe'?",
+			options: ['Mitigation', 'Mitagation', 'Mittigation', 'Mittagation'],
+			answer: 'Mitigation',
+		},
+		{
+			question:
+				'Which of the following is a type of figurative language that gives human qualities to non-human things?',
+			options: ['Metaphor', 'Simile', 'Personification', 'Hyperbole'],
+			answer: 'Personification',
+		},
+		{
+			question:
+				'What is the name for a word that is spelled the same as another word, but has a different meaning?',
+			options: ['Antonym', 'Synonym', 'Homonym', 'Heteronym'],
+			answer: 'Homonym',
+		},
 	];
-
 	const currentQuestion = questions[props.currentQuestionIndex];
 
 	const handleNextQuestion = () => {
-		const currentQuestion = questions[props.currentQuestionIndex];
-
+		setNumber(1);
 		if (currentQuestion.answer === selectedAnswer) {
-			setScore(score + 1);
+			if (props.turn === 1) {
+				props.setOneScore(props.oneScore + 1);
+			} else {
+				props.setTwoScore(props.twoScore + 1);
+			}
+		}
+		if (props.turn === 1) {
+			props.setTurn(2);
+		} else {
+			props.setTurn(1);
 		}
 
 		props.setCurrentQuestionIndex(props.currentQuestionIndex + 1);
@@ -85,13 +93,18 @@ function Quiz(props) {
 
 		const currentQuestion = questions[props.currentQuestionIndex];
 		if (currentQuestion.answer === selectedAnswer) {
-			setScore(score + 1);
+			// if (turn === 1) {
+			// setOneScore(oneScore + 1);
+			// } else {
+			// setTwoScore(twoScore + 1);
+			// }
 		}
 	};
 
 	const handleRestart = () => {
 		props.setCurrentQuestionIndex(0);
-		setScore(0);
+		setOneScore(0);
+		setTwoScore(0);
 		setShowResult(false);
 		setSelectedAnswer(false);
 		props.setEnabled(false);
@@ -113,6 +126,9 @@ function Quiz(props) {
 				title={<h2>{!showResult && currentQuestion.question}</h2>}
 				footer={
 					<>
+						<h5>{number}</h5>
+						<h5>{oneScore}</h5>
+						<h5>{twoScore}</h5>
 						{props.currentQuestionIndex < questions.length - 1 ? (
 							<>
 								<Button
@@ -147,7 +163,7 @@ function Quiz(props) {
 				{showResult ? (
 					<div>
 						<h2>
-							Your score: {score}/{questions.length}
+							Your score: {oneScore}/{questions.length}
 						</h2>
 					</div>
 				) : (
