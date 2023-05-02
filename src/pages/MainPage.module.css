@@ -8,7 +8,8 @@
 	justify-content: space-around;
 	align-items: center;
 }
-.cntr {
+
+.playerContainer {
 	position: relative;
 }
 

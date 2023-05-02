@@ -21,7 +21,7 @@ function MainPage() {
 	return (
 		<>
 			<div className={styles.container}>
-				<div className={styles.cntr}>
+				<div className={styles.playerContainer}>
 					<h1 className={styles.heading}>
 						{'Giga'}
 						<div
@@ -51,7 +51,7 @@ function MainPage() {
 						/>
 					)}
 				</div>
-				<div className={styles.cntr}>
+				<div className={styles.playerContainer}>
 					<h1 className={styles.heading}>
 						{'Bachuki'}
 						<div
