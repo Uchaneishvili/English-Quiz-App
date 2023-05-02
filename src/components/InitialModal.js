@@ -1,12 +1,14 @@
 /** @format */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal } from 'antd';
 
 function InitialModal() {
+	const [visible, setVisible] = useState(true);
 	return (
 		<Modal
-			open={true}
+			open={visible}
+			onCancel={() => setVisible(false)}
 			title={<h2>Dice Game Rules</h2>}
 			footer={null}>
 			<h2>Objective:</h2>
