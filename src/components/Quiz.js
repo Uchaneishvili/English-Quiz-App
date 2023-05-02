@@ -93,11 +93,6 @@ function Quiz(props) {
 
 		const currentQuestion = questions[props.currentQuestionIndex];
 		if (currentQuestion.answer === selectedAnswer) {
-			// if (turn === 1) {
-			// setOneScore(oneScore + 1);
-			// } else {
-			// setTwoScore(twoScore + 1);
-			// }
 		}
 	};
 
@@ -126,9 +121,6 @@ function Quiz(props) {
 				title={<h2>{!showResult && currentQuestion.question}</h2>}
 				footer={
 					<>
-						<h5>{number}</h5>
-						<h5>{oneScore}</h5>
-						<h5>{twoScore}</h5>
 						{props.currentQuestionIndex < questions.length - 1 ? (
 							<>
 								<Button
