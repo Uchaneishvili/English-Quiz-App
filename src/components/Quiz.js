@@ -4,10 +4,13 @@ import React from 'react';
 import { useState } from 'react';
 import { Modal, Button } from 'antd';
 import styles from './Quiz.module.css';
+import { resetNumbers } from '../util/reduxStore';
+import { useDispatch } from 'react-redux';
 
 function Quiz(props) {
 	const [showResult, setShowResult] = useState(false);
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
+	const dispatch = useDispatch();
 
 	const questions = [
 		{
@@ -74,14 +77,11 @@ function Quiz(props) {
 				props.setTwoScore(props.twoScore + 1);
 			}
 		}
-		if (props.activePlayer === 1) {
-			props.setActivePlayer(2);
-		} else {
-			props.setActivePlayer(1);
-		}
 
 		props.setCurrentQuestionIndex(props.currentQuestionIndex + 1);
+
 		setShowResult(false);
+		dispatch(resetNumbers());
 	};
 
 	const handleShowResult = () => {
@@ -107,7 +107,6 @@ function Quiz(props) {
 
 	const handleSubmitAnswer = () => {
 		handleNextQuestion();
-		props.setEnabled(false);
 	};
 	return (
 		<>
