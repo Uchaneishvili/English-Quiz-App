@@ -5,18 +5,17 @@ import { useState } from 'react';
 import { Modal, Button, Row, Col } from 'antd';
 import styles from './Quiz.module.css';
 import { useSelector } from 'react-redux';
-import select from "../Audio/select.mp3";
-import click from "../Audio/click.mp3";
+import select from '../Audio/select.mp3';
+import click from '../Audio/click.mp3';
 
 function Quiz(props) {
+	const play = () => {
+		new Audio(select).play();
+	};
 
-  const play = () => {
-    new Audio(select).play();
-  };
-
-  const clickSound = () => {
-    new Audio(click).play();
-  };
+	const clickSound = () => {
+		new Audio(click).play();
+	};
 	const [showResult, setShowResult] = useState(false);
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
 	const activePlayer = useSelector((state) => state.activePlayer);
@@ -95,6 +94,7 @@ function Quiz(props) {
 	};
 
 	const handleShowResult = () => {
+		props.setIsFinished(true);
 		setShowResult(true);
 
 		const currentQuestion = questions[props.currentQuestionIndex];
@@ -108,7 +108,8 @@ function Quiz(props) {
 	};
 
 	const handleRestart = () => {
-    play();
+		props.setIsWinner(0);
+		play();
 		props.setCurrentQuestionIndex(0);
 		props.setOneScore(0);
 		props.setTwoScore(0);
@@ -119,11 +120,11 @@ function Quiz(props) {
 
 	const handleAnswerSelect = (answer) => {
 		setSelectedAnswer(answer);
-    clickSound();
+		clickSound();
 	};
 
 	const handleSubmitAnswer = () => {
-    play();
+		play();
 		if (
 			props.currentQuestionIndex !== 0 &&
 			(props.currentQuestionIndex + 1) % 4 === 0

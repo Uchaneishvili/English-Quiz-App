@@ -1,248 +1,219 @@
 /** @format */
 
 .container {
-  display: flex;
-  align-items: center;
-  width: 90%;
-  height: 70vh;
-  position: relative;
-  padding-top: 100px;
-  margin: 0 auto;
+	display: flex;
+	align-items: center;
+	width: 90%;
+	height: 70vh;
+	position: relative;
+	padding-top: 100px;
+	margin: 0 auto;
 }
 .playerSide {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  background-color: #fff;
-  padding: 50px;
-  border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+	padding: 50px;
+	border-radius: 5px;
 }
 
 .activePlayerSide {
-  background-color: #f4fd5084;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  padding: 50px;
-  border-radius: 5px;
-  animation: activePlayer 1s ease-in-out;
+	background-color: #f4fd5084;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	padding: 50px;
+	border-radius: 5px;
+	animation: activePlayer 1s ease-in-out;
 }
 .playerName {
-  text-align: center;
-  font-size: 120%;
-  letter-spacing: 2px;
+	text-align: center;
+	font-size: 120%;
+	letter-spacing: 2px;
 }
 
 .score {
-  text-align: center;
-  font-size: 400%;
-  color: #39ff14;
-  text-shadow: 2px 2px 2px #7a2929;
+	text-align: center;
+	font-size: 400%;
+	color: #39ff14;
+	text-shadow: 2px 2px 2px #7a2929;
 }
 
 .middle {
-  display: flex;
-  flex-direction: column;
-  height: 15%;
-  position: absolute;
-  justify-content: flex-end;
-  left: 50%;
-  transform: translate(-50%);
+	display: flex;
+	flex-direction: column;
+	height: 15%;
+	position: absolute;
+	justify-content: flex-end;
+	left: 50%;
+	transform: translate(-50%);
 }
 
 .active {
-  background-color: #f7f7f7;
+	background-color: #f7f7f7;
 }
 
 .active .player-name {
-  font-weight: 600;
+	font-weight: 600;
 }
 
 .playerName > p::after {
-  content: "\2022";
-  color: #ff1f41;
-  margin-left: 0px;
-  font-size: 170%;
-  vertical-align: middle;
-  text-shadow: 2px 2px 2px #7a2929;
+	content: '\2022';
+	color: #ff1f41;
+	margin-left: 0px;
+	font-size: 170%;
+	vertical-align: middle;
+	text-shadow: 2px 2px 2px #7a2929;
 
-  -webkit-animation: flickerAnimation 1.3s infinite;
-  -moz-animation: flickerAnimation 1.3s infinite;
-  -o-animation: flickerAnimation 1.3s infinite;
-  animation: flickerAnimation 1.3s infinite;
+	-webkit-animation: flickerAnimation 1.3s infinite;
+	-moz-animation: flickerAnimation 1.3s infinite;
+	-o-animation: flickerAnimation 1.3s infinite;
+	animation: flickerAnimation 1.3s infinite;
 }
 
 @keyframes flickerAnimation {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 @-o-keyframes flickerAnimation {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 @-moz-keyframes flickerAnimation {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 @-webkit-keyframes flickerAnimation {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 @keyframes activePlayer {
-  0% {
-    background-color: #fff;
-  }
-  50% {
-    background-color: #f4fd5084;
-  }
-  100% {
-    background-color: #f4fd5084;
-  }
+	0% {
+		background-color: #fff;
+	}
+	50% {
+		background-color: #f4fd5084;
+	}
+	100% {
+		background-color: #f4fd5084;
+	}
 }
 
 .playerContainer {
-  position: relative;
+	position: relative;
 }
 
 .heading {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.underline {
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #000;
-  transition: transform 0.5s ease-out;
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-.underlineActive {
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: #000;
-  transition: transform 0.5s ease-out;
-  transform: scaleX(1);
-  transform-origin: left;
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
 }
 
 .scoreContainer {
-  height: 50px;
-  font-size: xx-large;
-}
-
-.throphy {
-  display: flex;
-  position: absolute;
-  font-size: 40px;
-  top: 5%;
-  right: 25%;
-  color: gold;
-  -webkit-animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715)
-    both;
-  animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+	height: 50px;
+	font-size: xx-large;
 }
 
 .hide {
-  display: none;
+	display: none;
 }
 
 .btnContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 }
 .btnRoll {
-  width: 150px;
-  background: none;
-  color: #555;
-  border: none;
-  font-size: 200%;
-  cursor: pointer;
-  font-weight: 300;
-  text-transform: uppercase;
-  transition: 0.2s;
+	width: 150px;
+	background: none;
+	color: #555;
+	border: none;
+	font-size: 200%;
+	cursor: pointer;
+	font-weight: 300;
+	text-transform: uppercase;
+	transition: 0.2s;
 }
-.throphy {
-  display: flex;
-  position: absolute;
-  font-size: 40px;
-  top: 5%;
-  right: 25%;
-  color: gold;
-  -webkit-animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715)
-    both;
-  animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) both;
-}
-.hide {
-  display: none;
+.firstTrophy {
+	display: flex;
+	position: absolute;
+	font-size: 40px;
+	top: 5%;
+	left: 23%;
+	color: gold;
+	-webkit-animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715)
+		both;
+	animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
 
+.secondTrophy {
+	display: flex;
+	position: absolute;
+	font-size: 40px;
+	top: 5%;
+	right: 23%;
+	color: gold;
+	-webkit-animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715)
+		both;
+	animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
 /**
  * ----------------------------------------
  * animation slide-bck-bottom
  * ----------------------------------------
  */
 @-webkit-keyframes slide-bck-bottom {
-  0% {
-    -webkit-transform: translateZ(0) translateY(0);
-    transform: translateZ(0) translateY(0);
-  }
-  100% {
-    -webkit-transform: translateZ(-400px) translateY(200px);
-    transform: translateZ(-400px) translateY(200px);
-  }
+	0% {
+		-webkit-transform: translateZ(0) translateY(0);
+		transform: translateZ(0) translateY(0);
+	}
+	100% {
+		-webkit-transform: translateZ(-400px) translateY(200px);
+		transform: translateZ(-400px) translateY(200px);
+	}
 }
 @keyframes slide-bck-bottom {
-  0% {
-    -webkit-transform: translateZ(0) translateY(0);
-    transform: translateZ(0) translateY(0);
-  }
-  100% {
-    -webkit-transform: translateZ(-400px) translateY(200px);
-    transform: translateZ(-400px) translateY(200px);
-  }
+	0% {
+		-webkit-transform: translateZ(0) translateY(0);
+		transform: translateZ(0) translateY(0);
+	}
+	100% {
+		-webkit-transform: translateZ(-400px) translateY(200px);
+		transform: translateZ(-400px) translateY(200px);
+	}
 }
-
