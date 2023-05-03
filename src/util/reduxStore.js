@@ -10,7 +10,6 @@ const initialState = {
 
 // define actions
 const ADD_NUMBER = 'ADD_NUMBER';
-const CHANGE_PLAYER = 'CHANGE_PLAYER';
 
 // define action creators
 export const addNumber = (numberArr) => {

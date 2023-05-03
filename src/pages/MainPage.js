@@ -18,7 +18,9 @@ function MainPage() {
 	const [oneScore, setOneScore] = useState(0);
 	const [twoScore, setTwoScore] = useState(0);
 	const showQuizzHandler = (show) => {
-		setIsEnabled(show);
+		if (numbers.length === 1) {
+			setIsEnabled(show);
+		}
 	};
 
 	useEffect(() => {
@@ -29,7 +31,7 @@ function MainPage() {
 				dispatch(setActivePlayer(2));
 			}
 		}
-	}, [numbers.length]);
+	}, [numbers.length, numbers, dispatch]);
 
 	return (
 		<>

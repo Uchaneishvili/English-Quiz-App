@@ -11,31 +11,25 @@ import cubeImg5 from './Img/dice-six-faces-5.png';
 import cubeImg6 from './Img/dice-six-faces-6.png';
 import { useSelector, useDispatch } from 'react-redux';
 import { Button } from 'antd';
-import { addNumber, changePlayer } from '../util/reduxStore';
+import { addNumber } from '../util/reduxStore';
 const Dice = (props) => {
 	const numbers = useSelector((state) => state.numbers);
-	const activePlayer = useSelector((state) => state.activePlayer);
 	const dispatch = useDispatch();
 	const ref = useRef();
 
-	const gnrt = (randNum) => {
+	const gnrt = () => {
 		let num;
 		do {
 			num = Math.floor(Math.random() * 6 + 1);
-		} while (randNum === num);
+		} while (num === numbers[numbers.length - 1]);
 		return num;
 	};
 	const rollHandler = () => {
-		let randNum = Math.floor(Math.random() * 6 + 1);
+		var rndm = gnrt();
 
-		if (numbers.length > 0 && numbers[numbers.length - 1] === randNum) {
-			const rndm = gnrt(randNum);
-			dispatch(addNumber(rndm));
-		} else {
-			dispatch(addNumber(randNum));
-		}
+		dispatch(addNumber(rndm));
 
-		let showClass = 'show' + randNum;
+		let showClass = 'show' + rndm;
 		var currentClass = ref.current.classList;
 		if (currentClass !== 'cube') {
 			ref.current.classList = 'cube';
@@ -43,9 +37,7 @@ const Dice = (props) => {
 		ref.current.classList.add(showClass);
 
 		setTimeout(() => {
-			if (activePlayer) {
-				props.onShowQuizz(true);
-			}
+			props.onShowQuizz(true);
 		}, 1000);
 	};
 

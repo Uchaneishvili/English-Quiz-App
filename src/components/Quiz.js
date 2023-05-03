@@ -106,6 +106,13 @@ function Quiz(props) {
 	};
 
 	const handleSubmitAnswer = () => {
+		console.log('[', props.currentQuestionIndex);
+		if (
+			props.currentQuestionIndex !== 0 &&
+			(props.currentQuestionIndex + 1) % 4 === 0
+		) {
+			props.setEnabled(false);
+		}
 		handleNextQuestion();
 	};
 	return (
