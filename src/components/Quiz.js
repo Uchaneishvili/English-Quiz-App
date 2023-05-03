@@ -92,22 +92,19 @@ function Quiz(props) {
 
     if (questions.length - 1 === props.currentQuestionIndex) {
       setShowResult(false);
-	
     }
   };
 
   const handleShowResult = () => {
-	
-
-	//   if(props.oneScore > props.twoScore){
-	// 	props.setIsWinner(1)
-	//   } else if(props.twoScore > props.oneScore){
-	// 	props.setIsWinner(2)
-	//   } else {
-	// 	props.setIsWinner(3)
-	//   }
+    //   if(props.oneScore > props.twoScore){
+    // 	props.setIsWinner(1)
+    //   } else if(props.twoScore > props.oneScore){
+    // 	props.setIsWinner(2)
+    //   } else {
+    // 	props.setIsWinner(3)
+    //   }
     setShowResult(true);
-	console.log(props.oneScore, props.twoScore)
+    console.log(props.oneScore, props.twoScore);
 
     const currentQuestion = questions[props.currentQuestionIndex];
     if (currentQuestion.answer === selectedAnswer) {

@@ -1,7 +1,8 @@
 /** @format */
 
 import React, { useState, useEffect } from "react";
-import { TrophyFilled } from "@ant-design/icons";
+import { TrophyFilled, PlayCircleFilled } from "@ant-design/icons";
+import { Button } from "antd";
 import Quiz from "../components/Quiz";
 import Dice from "../components/Dice";
 import styles from "./MainPage.module.css";
@@ -18,10 +19,8 @@ function MainPage() {
   const activePlayer = useSelector((state) => state.activePlayer);
   const [oneScore, setOneScore] = useState(0);
   const [twoScore, setTwoScore] = useState(0);
-  const [isWinner, setIsWinner] = useState()
-
-
-
+  const [isWinner, setIsWinner] = useState();
+  const [startG, setStartG] = useState(false);
 
   const showQuizzHandler = (show) => {
     if (numbers.length === 1) {
@@ -44,7 +43,11 @@ function MainPage() {
       }
     }
   }, [numbers.length, numbers, dispatch]);
-console.log('1', isWinner)
+  console.log("1", isWinner);
+  const gameStartHandler = () => {
+    setStartG(true);
+    
+  };
   return (
     <>
       <div className={styles.container}>
@@ -71,12 +74,22 @@ console.log('1', isWinner)
           </div>
           <div className={styles.score}>{oneScore}</div>
         </div>
+        <span style={{ visibility: "hidden" }}></span>
         <div className={styles.middle}>
+          <div style={!startG ? {display:"none"} : {display:"flex"}}>
           <Dice onShowQuizz={showQuizzHandler} />
+          </div>
+          <div className={startG ? styles.hide : styles.btnContainer}>
+            <Button onClick={gameStartHandler} className={styles.btnRoll}>
+              <PlayCircleFilled />
+              Play
+            </Button>
+          </div>
+
           {isEnabled && (
             <Quiz
-            isWinner={isWinner}
-            setIsWinner={setIsWinner}
+              isWinner={isWinner}
+              setIsWinner={setIsWinner}
               setOneScore={setOneScore}
               oneScore={oneScore}
               setTwoScore={setTwoScore}

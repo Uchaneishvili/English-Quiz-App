@@ -183,8 +183,27 @@
     both;
   animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
+
 .hide {
   display: none;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.btnRoll {
+  width: 150px;
+  background: none;
+  color: #555;
+  border: none;
+  font-size: 200%;
+  cursor: pointer;
+  font-weight: 300;
+  text-transform: uppercase;
+  transition: 0.2s;
 }
 
 /**
