@@ -19,7 +19,10 @@ function MainPage() {
 	return (
 		<>
 			<div className={styles.container}>
-				<div className={styles.playerSide}>
+				<div
+					className={
+						activePlayer === 1 ? styles.activePlayerSide : styles.playerSide
+					}>
 					<div className={styles.playerName}>
 						<h2> {'Player 1'} </h2>
 						{activePlayer === 1 && (
@@ -51,7 +54,10 @@ function MainPage() {
 						/>
 					)}
 				</div>
-				<div className={styles.playerSide}>
+				<div
+					className={
+						activePlayer === 2 ? styles.activePlayerSide : styles.playerSide
+					}>
 					<div className={styles.playerName}>
 						{activePlayer === 2 && (
 							<p
