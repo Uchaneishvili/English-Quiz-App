@@ -8,9 +8,6 @@ import styles from './Quiz.module.css';
 function Quiz(props) {
 	const [showResult, setShowResult] = useState(false);
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
-	const [oneScore, setOneScore] = useState(0);
-	const [twoScore, setTwoScore] = useState(0);
-	const [number, setNumber] = useState(0);
 
 	const questions = [
 		{
@@ -70,18 +67,17 @@ function Quiz(props) {
 	const currentQuestion = questions[props.currentQuestionIndex];
 
 	const handleNextQuestion = () => {
-		setNumber(1);
 		if (currentQuestion.answer === selectedAnswer) {
-			if (props.turn === 1) {
+			if (props.activePlayer === 1) {
 				props.setOneScore(props.oneScore + 1);
 			} else {
 				props.setTwoScore(props.twoScore + 1);
 			}
 		}
-		if (props.turn === 1) {
-			props.setTurn(2);
+		if (props.activePlayer === 1) {
+			props.setActivePlayer(2);
 		} else {
-			props.setTurn(1);
+			props.setActivePlayer(1);
 		}
 
 		props.setCurrentQuestionIndex(props.currentQuestionIndex + 1);
@@ -98,8 +94,8 @@ function Quiz(props) {
 
 	const handleRestart = () => {
 		props.setCurrentQuestionIndex(0);
-		setOneScore(0);
-		setTwoScore(0);
+		props.setOneScore(0);
+		props.setTwoScore(0);
 		setShowResult(false);
 		setSelectedAnswer(false);
 		props.setEnabled(false);
@@ -155,7 +151,7 @@ function Quiz(props) {
 				{showResult ? (
 					<div>
 						<h2>
-							Your score: {oneScore}/{questions.length}
+							Your score: {0}/{questions.length}
 						</h2>
 					</div>
 				) : (
