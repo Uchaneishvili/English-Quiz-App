@@ -4,11 +4,12 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Modal, Button } from 'antd';
 import styles from './Quiz.module.css';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function Quiz(props) {
 	const [showResult, setShowResult] = useState(false);
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
+	const activePlayer = useSelector((state) => state.activePlayer);
 
 	const questions = [
 		{
@@ -69,7 +70,7 @@ function Quiz(props) {
 
 	const handleNextQuestion = () => {
 		if (currentQuestion.answer === selectedAnswer) {
-			if (props.activePlayer === 1) {
+			if (activePlayer === 1) {
 				props.setOneScore(props.oneScore + 1);
 			} else {
 				props.setTwoScore(props.twoScore + 1);
