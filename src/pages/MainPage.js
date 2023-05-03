@@ -7,6 +7,7 @@ import styles from './MainPage.module.css';
 import InitialModal from '../components/InitialModal';
 import { useSelector, useDispatch } from 'react-redux';
 import { setActivePlayer } from '../util/reduxStore';
+import { resetNumbers } from '../util/reduxStore';
 
 function MainPage() {
 	const dispatch = useDispatch();
@@ -22,6 +23,12 @@ function MainPage() {
 			setIsEnabled(show);
 		}
 	};
+
+	useEffect(() => {
+		if (isEnabled === false) {
+			dispatch(resetNumbers());
+		}
+	}, [isEnabled]);
 
 	useEffect(() => {
 		if (numbers.length > 1) {

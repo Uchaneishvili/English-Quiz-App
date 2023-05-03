@@ -1,16 +1,14 @@
 /** @format */
 
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Modal, Button } from 'antd';
 import styles from './Quiz.module.css';
-import { resetNumbers } from '../util/reduxStore';
 import { useDispatch } from 'react-redux';
 
 function Quiz(props) {
 	const [showResult, setShowResult] = useState(false);
 	const [selectedAnswer, setSelectedAnswer] = useState(null);
-	const dispatch = useDispatch();
 
 	const questions = [
 		{
@@ -80,8 +78,9 @@ function Quiz(props) {
 
 		props.setCurrentQuestionIndex(props.currentQuestionIndex + 1);
 
-		setShowResult(false);
-		dispatch(resetNumbers());
+		if (questions.length - 1 === props.currentQuestionIndex) {
+			setShowResult(false);
+		}
 	};
 
 	const handleShowResult = () => {
