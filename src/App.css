@@ -1,4 +1,5 @@
 /** @format */
+
 html {
   background-image: linear-gradient(
     110.5deg,
@@ -8,4 +9,5 @@ html {
   font-size: 20px;
   height: 100vh;
   font-family: "Zen Dots", cursive;
+
 }

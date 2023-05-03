@@ -12,10 +12,12 @@ function MainPage() {
   const [playerOne, setPlayerOne] = useState("Player 1");
   const [playerTwo, setPlayerTwo] = useState("Player 2");
   const [activePlayer, setActivePlayer] = useState(1);
-
+  const [oneScore, setOneScore] = useState(0);
+  const [twoScore, setTwoScore] = useState(0);
   const showQuizzHandler = (show) => {
     setIsEnabled(show);
   };
+
 
   return (
     <>
@@ -49,12 +51,16 @@ function MainPage() {
         </div>
         <div className={styles.playerSide}>
           <div className={styles.playerName}>
-            {activePlayer === 2 && <p  style={{
+            {activePlayer === 2 && (
+              <p
+                style={{
                   display: "flex",
                   position: "absolute",
                   top: "41%",
                   right: "17%",
-                }}></p>}
+                }}
+              ></p>
+            )}
             <h2> {playerTwo}</h2>
           </div>
           <div className={styles.score}>0</div>
@@ -64,5 +70,4 @@ function MainPage() {
     </>
   );
 }
-
 export default MainPage;
