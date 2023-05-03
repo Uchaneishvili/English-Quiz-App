@@ -205,6 +205,20 @@
   text-transform: uppercase;
   transition: 0.2s;
 }
+.throphy {
+  display: flex;
+  position: absolute;
+  font-size: 40px;
+  top: 5%;
+  right: 25%;
+  color: gold;
+  -webkit-animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715)
+    both;
+  animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
+.hide {
+  display: none;
+}
 
 /**
  * ----------------------------------------
@@ -231,3 +245,4 @@
     transform: translateZ(-400px) translateY(200px);
   }
 }
+

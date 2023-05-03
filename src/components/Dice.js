@@ -11,7 +11,7 @@ import cubeImg5 from "./Img/dice-six-faces-5.png";
 import cubeImg6 from "./Img/dice-six-faces-6.png";
 import { useSelector, useDispatch } from "react-redux";
 import { Button } from "antd";
-import { addNumber } from '../util/reduxStore';
+import { addNumber } from "../util/reduxStore";
 
 import sound from "../Audio/rollingDice.mp3";
 
@@ -19,7 +19,6 @@ const Dice = (props) => {
   const play = () => {
     new Audio(sound).play();
   };
-
   const numbers = useSelector((state) => state.numbers);
   const dispatch = useDispatch();
   const ref = useRef();
@@ -33,7 +32,6 @@ const Dice = (props) => {
   };
   const rollHandler = () => {
     play();
-    //audio
     var rndm = gnrt();
 
     dispatch(addNumber(rndm));
