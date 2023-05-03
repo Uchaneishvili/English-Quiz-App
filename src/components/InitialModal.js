@@ -7,7 +7,9 @@ import backgroundAudio from "../Audio/backgroundMusic.mp3";
 
 function InitialModal() {
   const play = () => {
-    const audio = new Audio(backgroundAudio).play();
+    const audio = new Audio(backgroundAudio);
+    audio.loop = true;
+    audio.play();
   };
 
   const [visible, setVisible] = useState(true);

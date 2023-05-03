@@ -1,6 +1,7 @@
 /** @format */
 
 import React, { useState, useEffect } from "react";
+import { TrophyFilled } from "@ant-design/icons";
 import Quiz from "../components/Quiz";
 import Dice from "../components/Dice";
 import styles from "./MainPage.module.css";
@@ -10,15 +11,18 @@ import { setActivePlayer } from "../util/reduxStore";
 import { resetNumbers } from "../util/reduxStore";
 
 function MainPage() {
-
   const dispatch = useDispatch();
   const [isEnabled, setIsEnabled] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const numbers = useSelector((state) => state.numbers);
   const activePlayer = useSelector((state) => state.activePlayer);
-
   const [oneScore, setOneScore] = useState(0);
   const [twoScore, setTwoScore] = useState(0);
+  const [isWinner, setIsWinner] = useState()
+
+
+
+
   const showQuizzHandler = (show) => {
     if (numbers.length === 1) {
       setIsEnabled(show);
@@ -31,8 +35,6 @@ function MainPage() {
     }
   }, [isEnabled]);
 
-
-
   useEffect(() => {
     if (numbers.length > 1) {
       if (numbers[numbers.length - 1] < numbers[numbers.length - 2]) {
@@ -42,7 +44,7 @@ function MainPage() {
       }
     }
   }, [numbers.length, numbers, dispatch]);
-
+console.log('1', isWinner)
   return (
     <>
       <div className={styles.container}>
@@ -52,6 +54,9 @@ function MainPage() {
           }
         >
           <div className={styles.playerName}>
+            <div className={styles.hide}>
+              <TrophyFilled />
+            </div>
             <h2> {"Player 1"} </h2>
             {activePlayer === 1 && (
               <p
@@ -70,6 +75,8 @@ function MainPage() {
           <Dice onShowQuizz={showQuizzHandler} />
           {isEnabled && (
             <Quiz
+            isWinner={isWinner}
+            setIsWinner={setIsWinner}
               setOneScore={setOneScore}
               oneScore={oneScore}
               setTwoScore={setTwoScore}
@@ -97,6 +104,9 @@ function MainPage() {
                 }}
               ></p>
             )}
+            <div className={styles.throphy}>
+              <TrophyFilled />
+            </div>
             <h2> {"Player 2"} </h2>
           </div>
           <div className={styles.score}>{twoScore}</div>

@@ -6,11 +6,16 @@ import { Modal, Button, Row, Col } from "antd";
 import styles from "./Quiz.module.css";
 import { useSelector } from "react-redux";
 
-import audio from "../Audio/select.mp3";
+import select from "../Audio/select.mp3";
+import click from "../Audio/click.mp3";
 
 function Quiz(props) {
   const play = () => {
-    new Audio(audio).play();
+    new Audio(select).play();
+  };
+
+  const clickSound = () => {
+    new Audio(click).play();
   };
 
   const [showResult, setShowResult] = useState(false);
@@ -24,53 +29,53 @@ function Quiz(props) {
       options: ["Interrogative", "Exclamatory", "Imperative", "Declarative"],
       answer: "Imperative",
     },
-    {
-      question:
-        "What is the correct spelling of the word that means 'extremely beautiful'?",
-      options: ["Gorgeous", "Gorgous", "Gorgeus", "Gorgius"],
-      answer: "Gorgeous",
-    },
-    {
-      question:
-        "Which of the following is a type of figurative language that compares two unlike things using 'like' or 'as'?",
-      options: ["Metaphor", "Simile", "Personification", "Hyperbole"],
-      answer: "Simile",
-    },
-    {
-      question:
-        "What is the name for a word that has the same or nearly the same meaning as another word?",
-      options: ["Antonym", "Synonym", "Homonym", "Heteronym"],
-      answer: "Synonym",
-    },
-    {
-      question: "What is the plural of the word 'goose'?",
-      options: ["Geese", "Gooses", "Geeses", "Gice"],
-      answer: "Geese",
-    },
-    {
-      question:
-        "Which of the following is a type of sentence that expresses strong emotion?",
-      options: ["Interrogative", "Exclamatory", "Imperative", "Declarative"],
-      answer: "Exclamatory",
-    },
-    {
-      question:
-        "What is the correct spelling of the word that means 'the act of making something less severe'?",
-      options: ["Mitigation", "Mitagation", "Mittigation", "Mittagation"],
-      answer: "Mitigation",
-    },
-    {
-      question:
-        "Which of the following is a type of figurative language that gives human qualities to non-human things?",
-      options: ["Metaphor", "Simile", "Personification", "Hyperbole"],
-      answer: "Personification",
-    },
-    {
-      question:
-        "What is the name for a word that is spelled the same as another word, but has a different meaning?",
-      options: ["Antonym", "Synonym", "Homonym", "Heteronym"],
-      answer: "Homonym",
-    },
+    // {
+    //   question:
+    //     "What is the correct spelling of the word that means 'extremely beautiful'?",
+    //   options: ["Gorgeous", "Gorgous", "Gorgeus", "Gorgius"],
+    //   answer: "Gorgeous",
+    // },
+    // {
+    //   question:
+    //     "Which of the following is a type of figurative language that compares two unlike things using 'like' or 'as'?",
+    //   options: ["Metaphor", "Simile", "Personification", "Hyperbole"],
+    //   answer: "Simile",
+    // },
+    // {
+    //   question:
+    //     "What is the name for a word that has the same or nearly the same meaning as another word?",
+    //   options: ["Antonym", "Synonym", "Homonym", "Heteronym"],
+    //   answer: "Synonym",
+    // },
+    // {
+    //   question: "What is the plural of the word 'goose'?",
+    //   options: ["Geese", "Gooses", "Geeses", "Gice"],
+    //   answer: "Geese",
+    // },
+    // {
+    //   question:
+    //     "Which of the following is a type of sentence that expresses strong emotion?",
+    //   options: ["Interrogative", "Exclamatory", "Imperative", "Declarative"],
+    //   answer: "Exclamatory",
+    // },
+    // {
+    //   question:
+    //     "What is the correct spelling of the word that means 'the act of making something less severe'?",
+    //   options: ["Mitigation", "Mitagation", "Mittigation", "Mittagation"],
+    //   answer: "Mitigation",
+    // },
+    // {
+    //   question:
+    //     "Which of the following is a type of figurative language that gives human qualities to non-human things?",
+    //   options: ["Metaphor", "Simile", "Personification", "Hyperbole"],
+    //   answer: "Personification",
+    // },
+    // {
+    //   question:
+    //     "What is the name for a word that is spelled the same as another word, but has a different meaning?",
+    //   options: ["Antonym", "Synonym", "Homonym", "Heteronym"],
+    //   answer: "Homonym",
+    // },
   ];
   const currentQuestion = questions[props.currentQuestionIndex];
 
@@ -87,11 +92,22 @@ function Quiz(props) {
 
     if (questions.length - 1 === props.currentQuestionIndex) {
       setShowResult(false);
+	
     }
   };
 
   const handleShowResult = () => {
+	
+
+	//   if(props.oneScore > props.twoScore){
+	// 	props.setIsWinner(1)
+	//   } else if(props.twoScore > props.oneScore){
+	// 	props.setIsWinner(2)
+	//   } else {
+	// 	props.setIsWinner(3)
+	//   }
     setShowResult(true);
+	console.log(props.oneScore, props.twoScore)
 
     const currentQuestion = questions[props.currentQuestionIndex];
     if (currentQuestion.answer === selectedAnswer) {
@@ -104,6 +120,7 @@ function Quiz(props) {
   };
 
   const handleRestart = () => {
+    play();
     props.setCurrentQuestionIndex(0);
     props.setOneScore(0);
     props.setTwoScore(0);
@@ -114,6 +131,7 @@ function Quiz(props) {
 
   const handleAnswerSelect = (answer) => {
     setSelectedAnswer(answer);
+    clickSound();
   };
 
   const handleSubmitAnswer = () => {
