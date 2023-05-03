@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Modal, Button } from 'antd';
+import { Modal, Button, Row, Col } from 'antd';
 import styles from './Quiz.module.css';
 import { useSelector } from 'react-redux';
 
@@ -89,6 +89,11 @@ function Quiz(props) {
 
 		const currentQuestion = questions[props.currentQuestionIndex];
 		if (currentQuestion.answer === selectedAnswer) {
+			if (activePlayer === 1) {
+				props.setOneScore(props.oneScore + 1);
+			} else {
+				props.setTwoScore(props.twoScore + 1);
+			}
 		}
 	};
 
@@ -106,7 +111,6 @@ function Quiz(props) {
 	};
 
 	const handleSubmitAnswer = () => {
-		console.log('[', props.currentQuestionIndex);
 		if (
 			props.currentQuestionIndex !== 0 &&
 			(props.currentQuestionIndex + 1) % 4 === 0
@@ -157,7 +161,17 @@ function Quiz(props) {
 				{showResult ? (
 					<div>
 						<h2>
-							Your score: {0}/{questions.length}
+							<Row>
+								<Col>
+									Player 1 score: {props.oneScore}/{questions.length}
+								</Col>
+							</Row>
+
+							<Row>
+								<Col>
+									Player 2 score: {props.twoScore}/{questions.length}
+								</Col>
+							</Row>
 						</h2>
 					</div>
 				) : (
