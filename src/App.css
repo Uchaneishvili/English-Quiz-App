@@ -1,1 +1,11 @@
 /** @format */
+html {
+  background-image: linear-gradient(
+    110.5deg,
+    rgba(71, 114, 148, 1) 14.9%,
+    rgba(149, 245, 211, 1) 77.9%
+  );
+  font-size: 20px;
+  height: 100vh;
+  font-family: "Zen Dots", cursive;
+}
