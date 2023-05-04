@@ -10,6 +10,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setActivePlayer } from "../util/reduxStore";
 import { resetNumbers } from "../util/reduxStore";
 import audio from "../Audio/win.mp3";
+import startAudio from "../Audio/click.mp3";
 
 function MainPage() {
   const dispatch = useDispatch();
@@ -26,6 +27,9 @@ function MainPage() {
   const [sPlayerName, setSecondPlayerName] = useState("Player2");
   const [showAlert, setShowAlert] = useState(false);
 
+  const startAudioHandler = () => {
+    new Audio(startAudio).play();
+  };
   const winAudio = () => {
     new Audio(audio).play();
   };
@@ -114,7 +118,10 @@ function MainPage() {
             <Dice onShowQuizz={showQuizzHandler} />
           </div>
           <div className={startG ? styles.hide : styles.btnContainer}>
-            <Button onClick={gameStartHandler} className={styles.btnRoll}>
+            <Button
+              onClick={(gameStartHandler, startAudioHandler)}
+              className={styles.btnRoll}
+            >
               <PlayCircleFilled />
               Play
             </Button>
