@@ -117,11 +117,11 @@ function MainPage() {
           <div style={!startG ? { display: "none" } : { display: "flex" }}>
             <Dice onShowQuizz={showQuizzHandler} />
           </div>
-          <div className={startG ? styles.hide : styles.btnContainer}>
-            <Button
-              onClick={(gameStartHandler, startAudioHandler)}
-              className={styles.btnRoll}
-            >
+          <div
+            className={startG ? styles.hide : styles.btnContainer}
+            onClick={startAudioHandler}
+          >
+            <Button onClick={gameStartHandler} className={styles.btnRoll}>
               <PlayCircleFilled />
               Play
             </Button>
