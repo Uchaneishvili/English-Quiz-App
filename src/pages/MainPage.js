@@ -9,6 +9,7 @@ import InitialModal from "../components/InitialModal";
 import { useSelector, useDispatch } from "react-redux";
 import { setActivePlayer } from "../util/reduxStore";
 import { resetNumbers } from "../util/reduxStore";
+import audio from "../Audio/win.mp3";
 
 function MainPage() {
   const dispatch = useDispatch();
@@ -25,6 +26,9 @@ function MainPage() {
   const [sPlayerName, setSecondPlayerName] = useState("Player2");
   const [showAlert, setShowAlert] = useState(false);
 
+  const winAudio = () => {
+    new Audio(audio).play();
+  };
   const setFnameHandler = (e) => {
     setFirstPlayerName(e.target.value);
   };
@@ -149,8 +153,8 @@ function MainPage() {
               setEnabled={setIsEnabled}
               setCurrentQuestionIndex={setCurrentQuestionIndex}
               currentQuestionIndex={currentQuestionIndex}
-			  fPlayerName={fPlayerName}
-			  sPlayerName={sPlayerName}
+              fPlayerName={fPlayerName}
+              sPlayerName={sPlayerName}
             />
           )}
         </div>
@@ -167,7 +171,7 @@ function MainPage() {
                   : styles.hide
               }
             >
-              <TrophyFilled />
+              {isWinner && winAudio()} <TrophyFilled />
             </div>
             {activePlayer === 2 && (
               <p

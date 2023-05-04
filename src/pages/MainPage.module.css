@@ -181,9 +181,9 @@
   top: 5%;
   left: 23%;
   color: gold;
-  -webkit-animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715)
+  -webkit-animation: slide-bck-bottom 1.5s cubic-bezier(0.47, 0, 0.745, 0.715)
     both;
-  animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+  animation: slide-bck-bottom 1.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
 
 .secondTrophy {
@@ -193,9 +193,9 @@
   top: 5%;
   right: 23%;
   color: gold;
-  -webkit-animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715)
+  -webkit-animation: slide-bck-bottom 1.5s cubic-bezier(0.47, 0, 0.745, 0.715)
     both;
-  animation: slide-bck-bottom 0.45s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+  animation: slide-bck-bottom 1.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
 }
 /**
  * ----------------------------------------
