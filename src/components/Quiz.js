@@ -53,119 +53,119 @@ function Quiz(props) {
       ],
       answer: "If I were you, I would take the job.",
     },
-    // {
-    //   question: 'Which of the following is a synonym for the word "arduous"?',
-    //   options: ["Easy", "Challenging", "Boring", "Simple"],
-    //   answer: "Challenging",
-    // },
-    // {
-    //   question:
-    //     "Which of the following sentences uses a relative pronoun correctly?",
-    //   options: [
-    //     "The girl, who is my sister, is coming to visit.",
-    //     "The girl, that is my sister, is coming to visit.",
-    //     "The girl, whom is my sister, is coming to visit.",
-    //     "The girl, whose my sister, is coming to visit.",
-    //   ],
-    //   answer: "The girl, who is my sister, is coming to visit.",
-    // },
-    // {
-    //   question: 'Which of the following words is a homophone for "allowed"?',
-    //   options: ["Aloud", "Allowed", "Alloud", "Alowd"],
-    //   answer: "Aloud",
-    // },
-    // {
-    //   question:
-    //     "Which of the following sentences contains a misplaced modifier?",
-    //   options: [
-    //     "I saw the baby bird with the binoculars.",
-    //     "The professor returned the research paper with a red pen.",
-    //     "After the rain stopped, we went outside to play.",
-    //     "Walking down the street, the flowers smelled lovely.",
-    //   ],
-    //   answer: "Walking down the street, the flowers smelled lovely.",
-    // },
-    // {
-    //   question: "Which of the following is an example of an emphatic sentence?",
-    //   options: [
-    //     "Would you please pass the salt?",
-    //     "Pass the salt!",
-    //     "I wonder if you could pass the salt.",
-    //     "Can you pass the salt?",
-    //   ],
-    //   answer: "Pass the salt!",
-    // },
-    // {
-    //   question: "Which of the following sentences uses the passive voice?",
-    //   options: [
-    //     "The dog chased the cat.",
-    //     "The cat was chased by the dog.",
-    //     "The cat chased the dog.",
-    //     "The dog was chased by the cat.",
-    //   ],
-    //   answer: "The cat was chased by the dog.",
-    // },
-    // {
-    //   question: "Which of the following words is spelled incorrectly?",
-    //   options: ["Supersede", "Acquaintance", "Concieve", "Embarrass"],
-    //   answer: "Concieve",
-    // },
-    // {
-    //   question:
-    //     'Which of the following words is a synonym for the adjective "indignant"?',
-    //   options: ["Happy", "Angry", "Confused", "Proud"],
-    //   answer: "Angry",
-    // },
-    // {
-    //   question:
-    //     'Which of the following sentences uses the verb "to lay" correctly?',
-    //   options: [
-    //     "I am going to lay down for a nap.",
-    //     "I laid on the beach for hours yesterday.",
-    //     "He had laid the book on the table before leaving.",
-    //     "The chicken had already laid its eggs.",
-    //   ],
-    //   answer: "He had laid the book on the table before leaving.",
-    // },
-    // {
-    //   question:
-    //     'Which of the following sentences uses the adverb "correctly" correctly?',
-    //   options: [
-    //     "I correctly answered all the questions on the quiz.",
-    //     "I answered all the questions on the quiz correctly.",
-    //     "I answered all the questions correctly on the quiz.",
-    //     "All the questions on the quiz I answered correctly.",
-    //   ],
-    //   answer: "I answered all the questions on the quiz correctly.",
-    // },
-    // {
-    //   question:
-    //     'Which of the following words is an antonym for the adjective "abundant"?',
-    //   options: ["Scarce", "Plentiful", "Ample", "Sufficient"],
-    //   answer: "Scarce",
-    // },
-    // {
-    //   question:
-    //     'Which of the following sentences uses the preposition "between" correctly?',
-    //   options: [
-    //     "I am choosing between two different restaurants for dinner.",
-    //     "The book is located in between the two shelves.",
-    //     "He had to choose between drinking coffee or tea.",
-    //     "I walked between the sidewalk and the street.",
-    //   ],
-    //   answer: "I am choosing between two different restaurants for dinner.",
-    // },
-    // {
-    //   question:
-    //     'Which of the following sentences uses the article "an" correctly?',
-    //   options: [
-    //     "She is a university student.",
-    //     "An apple a day keeps the doctor away.",
-    //     "The dog chased a squirrel up the tree.",
-    //     "A elephant never forgets.",
-    //   ],
-    //   answer: "An apple a day keeps the doctor away.",
-    // },
+    {
+      question: 'Which of the following is a synonym for the word "arduous"?',
+      options: ["Easy", "Challenging", "Boring", "Simple"],
+      answer: "Challenging",
+    },
+    {
+      question:
+        "Which of the following sentences uses a relative pronoun correctly?",
+      options: [
+        "The girl, who is my sister, is coming to visit.",
+        "The girl, that is my sister, is coming to visit.",
+        "The girl, whom is my sister, is coming to visit.",
+        "The girl, whose my sister, is coming to visit.",
+      ],
+      answer: "The girl, who is my sister, is coming to visit.",
+    },
+    {
+      question: 'Which of the following words is a homophone for "allowed"?',
+      options: ["Aloud", "Allowed", "Alloud", "Alowd"],
+      answer: "Aloud",
+    },
+    {
+      question:
+        "Which of the following sentences contains a misplaced modifier?",
+      options: [
+        "I saw the baby bird with the binoculars.",
+        "The professor returned the research paper with a red pen.",
+        "After the rain stopped, we went outside to play.",
+        "Walking down the street, the flowers smelled lovely.",
+      ],
+      answer: "Walking down the street, the flowers smelled lovely.",
+    },
+    {
+      question: "Which of the following is an example of an emphatic sentence?",
+      options: [
+        "Would you please pass the salt?",
+        "Pass the salt!",
+        "I wonder if you could pass the salt.",
+        "Can you pass the salt?",
+      ],
+      answer: "Pass the salt!",
+    },
+    {
+      question: "Which of the following sentences uses the passive voice?",
+      options: [
+        "The dog chased the cat.",
+        "The cat was chased by the dog.",
+        "The cat chased the dog.",
+        "The dog was chased by the cat.",
+      ],
+      answer: "The cat was chased by the dog.",
+    },
+    {
+      question: "Which of the following words is spelled incorrectly?",
+      options: ["Supersede", "Acquaintance", "Concieve", "Embarrass"],
+      answer: "Concieve",
+    },
+    {
+      question:
+        'Which of the following words is a synonym for the adjective "indignant"?',
+      options: ["Happy", "Angry", "Confused", "Proud"],
+      answer: "Angry",
+    },
+    {
+      question:
+        'Which of the following sentences uses the verb "to lay" correctly?',
+      options: [
+        "I am going to lay down for a nap.",
+        "I laid on the beach for hours yesterday.",
+        "He had laid the book on the table before leaving.",
+        "The chicken had already laid its eggs.",
+      ],
+      answer: "He had laid the book on the table before leaving.",
+    },
+    {
+      question:
+        'Which of the following sentences uses the adverb "correctly" correctly?',
+      options: [
+        "I correctly answered all the questions on the quiz.",
+        "I answered all the questions on the quiz correctly.",
+        "I answered all the questions correctly on the quiz.",
+        "All the questions on the quiz I answered correctly.",
+      ],
+      answer: "I answered all the questions on the quiz correctly.",
+    },
+    {
+      question:
+        'Which of the following words is an antonym for the adjective "abundant"?',
+      options: ["Scarce", "Plentiful", "Ample", "Sufficient"],
+      answer: "Scarce",
+    },
+    {
+      question:
+        'Which of the following sentences uses the preposition "between" correctly?',
+      options: [
+        "I am choosing between two different restaurants for dinner.",
+        "The book is located in between the two shelves.",
+        "He had to choose between drinking coffee or tea.",
+        "I walked between the sidewalk and the street.",
+      ],
+      answer: "I am choosing between two different restaurants for dinner.",
+    },
+    {
+      question:
+        'Which of the following sentences uses the article "an" correctly?',
+      options: [
+        "She is a university student.",
+        "An apple a day keeps the doctor away.",
+        "The dog chased a squirrel up the tree.",
+        "A elephant never forgets.",
+      ],
+      answer: "An apple a day keeps the doctor away.",
+    },
     // {
     //   question:
     //     'Which of the following words is a synonym for the adjective "perplexing"?',
